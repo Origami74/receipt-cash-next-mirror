@@ -32,7 +32,16 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: Origami74/receipt-cash-next-mirror
-        branch: next
+        ref: next
+        fetch-depth: 1
+        clean: true
+    
+    - name: Debug - List files
+      run: |
+        echo "Current directory contents:"
+        ls -la
+        echo "Looking for lock files:"
+        find . -name "package-lock.json" -o -name "yarn.lock" -o -name "npm-shrinkwrap.json"
     
     - name: Setup Node.js
       uses: actions/setup-node@v4
