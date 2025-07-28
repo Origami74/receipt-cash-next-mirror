@@ -4,6 +4,10 @@ on:
   # Allow manual triggering
   workflow_dispatch:
   
+  # Allow external repository to trigger via API
+  repository_dispatch:
+    types: [deploy]
+  
   # Run on commits to main branch
   push:
     branches: [ main ]
