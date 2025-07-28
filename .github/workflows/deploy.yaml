@@ -36,21 +36,16 @@ jobs:
         fetch-depth: 1
         clean: true
     
-    - name: Debug - List files
-      run: |
-        echo "Current directory contents:"
-        ls -la
-        echo "Looking for lock files:"
-        find . -name "package-lock.json" -o -name "yarn.lock" -o -name "npm-shrinkwrap.json"
-    
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '22'
-        cache: 'npm'
     
-    - name: Install dependencies
-      run: npm i
+    - name: Clean and install dependencies
+      run: |
+        # Remove lock file and node_modules to fix npm optional dependencies bug
+        rm -rf node_modules package-lock.json
+        npm install
     
     - name: Build project
       run: npm run build
