@@ -32,7 +32,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: Origami74/receipt-cash
-        ref: next
+        ref: feature/applesauce-background
         fetch-depth: 1
         clean: true
     
