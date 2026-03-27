@@ -32,7 +32,7 @@ jobs:
       uses: actions/checkout@v4
       with:
         repository: Origami74/receipt-cash
-        ref: v3
+        ref: main
         fetch-depth: 1
         clean: true
     
